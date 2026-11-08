@@ -4,7 +4,7 @@
 
 import type { Building } from "./buildingSearch";
 import type { LatLng } from "./geocode";
-import type { Listing } from "./listings";
+import type { Laundry, Listing, ListingFormValues, Parking, Utility } from "./listings";
 
 export const JSM_UNITS_URL = "https://jsmliving.com/search-available-units";
 const JSM_SITE = "https://jsmliving.com";
@@ -22,6 +22,22 @@ export interface JsmUnit {
   available: string;
   link: string;
   point: LatLng | null;
+  /** From the building's own page; missing until the rent check has read it. */
+  details?: JsmUnitDetails;
+}
+
+/** What a building page says about one unit type, ready to fill in a saved listing. */
+export interface JsmUnitDetails {
+  phone: string;
+  laundry: Laundry;
+  parking: Parking;
+  utilitiesIncluded: Utility[];
+  /** JSM's monthly utility fee, which pays for the included utilities. */
+  utilityFee: number | null;
+  /** JSM's own wording, like "Water, Sewer, Recycling, and Internet". */
+  utilitiesText: string;
+  amenities: string[];
+  checkedAt: string;
 }
 
 export interface JsmFeed {
@@ -76,13 +92,17 @@ export function defaultAddress(building: string): string {
   return `${streetAddress(building)}, Champaign, IL`;
 }
 
+function untilArticleEnd(chunk: string): string {
+  const end = chunk.indexOf("</article>");
+  return end === -1 ? chunk : chunk.slice(0, end);
+}
+
 /** Pulls every unit card out of the available-units page. Cards without a building or rent are skipped. */
 export function parseJsmUnits(html: string): JsmUnit[] {
   const units: JsmUnit[] = [];
   const seen = new Set<string>();
   for (const chunk of html.split('<article data-history-node-id="').slice(1)) {
-    const end = chunk.indexOf("</article>");
-    const card = end === -1 ? chunk : chunk.slice(0, end);
+    const card = untilArticleEnd(chunk);
     const id = firstMatch(card, /^(\d+)"/);
     const building = firstMatch(card, /field--name-field-building[^>]*>\s*<a[^>]*>([^<]+)<\/a>/);
     const rent = parseRent(firstMatch(card, /class="rent_unit">([^<]*)</));
@@ -107,6 +127,136 @@ export function parseJsmUnits(html: string): JsmUnit[] {
   return units;
 }
 
+/** The unit type in a unit's link, like "707S-1-1-A", which names its section on the building page. */
+export function unitType(link: string): string {
+  try {
+    return new URL(link).searchParams.get("unittype") ?? "";
+  } catch {
+    return "";
+  }
+}
+
+function textOf(html: string): string {
+  return decodeEntities(html.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+}
+
+/** "Water, Sewer, Trash Hauling, Electric/Gas(Boiler Heat & Hot Water)" becomes water, trash, electric, gas, heat. */
+export function parseUtilities(text: string): Utility[] {
+  const items = text
+    .toLowerCase()
+    .split(/,|&|\band\b/)
+    .map((item) => item.trim());
+  return UTILITY_PATTERNS.filter(([, pattern]) => items.some((item) => pattern.test(item))).map(
+    ([utility]) => utility,
+  );
+}
+
+/** Only a list item that is just "Water" counts, so "Hot Water" alone doesn't. */
+const UTILITY_PATTERNS: [Utility, RegExp][] = [
+  ["water", /^water$/],
+  ["electric", /electric/],
+  ["gas", /gas/],
+  ["heat", /heat/],
+  ["internet", /internet/],
+  ["trash", /trash/],
+];
+
+function laundryFrom(amenities: string[], pageText: string): Laundry {
+  const listed = amenities.join(" ").toLowerCase();
+  const page = pageText.toLowerCase();
+  if (/laundry in unit|washer & dryer/.test(listed) || /in-unit laundry|laundry in-unit/.test(page)) {
+    return "in-unit";
+  }
+  if (/laundry room/.test(listed) || /on-site laundry|laundry room/.test(page)) {
+    return "in-building";
+  }
+  return "unknown";
+}
+
+function parkingFrom(amenities: string[]): Parking {
+  const listed = amenities.join(" ").toLowerCase();
+  if (listed.includes("parking included")) {
+    return "included";
+  }
+  return /leased (\w+ )?parking/.test(listed) ? "paid" : "unknown";
+}
+
+/** The utility fee in the rent-table row whose rent is the one counted, or the first row's. */
+function utilityFeeFrom(section: string, rentLow: number): number | null {
+  const rows = [...section.matchAll(/<tr>(.*?)<\/tr>/gs)]
+    .map((row) => [...row[1].matchAll(/<td>([^<]*)<\/td>/g)].map((cell) => parseRent(cell[1])?.low ?? null))
+    .filter((cells) => cells.length >= 3);
+  const row = rows.find((cells) => cells.slice(1, -1).includes(rentLow)) ?? rows[0];
+  return row?.at(-1) ?? null;
+}
+
+/** Reads one unit type's section of a building page. Null when the page has no section for it. */
+export function parseUnitDetails(buildingPage: string, unit: JsmUnit, checkedAt: string): JsmUnitDetails | null {
+  const sections = buildingPage.split('<article id="').slice(1);
+  const type = unitType(unit.link);
+  const chunk = sections.find((section) => type !== "" && section.startsWith(`${type}"`));
+  if (!chunk) {
+    return null;
+  }
+  const section = untilArticleEnd(chunk);
+  const utilitiesText = textOf(firstMatch(section, /field--name-field-utility-and-service[^>]*>([\s\S]*?)<\/div>/));
+  const amenitiesHtml = /field--name-field-amenities[^>]*>([\s\S]*?)<\/div>/.exec(section)?.[1] ?? "";
+  const amenities = amenitiesHtml.split(/<br\s*\/?>/).map(textOf).filter(Boolean);
+  return {
+    phone: firstMatch(buildingPage, /(\(\d{3}\) \d{3}-\d{4})/),
+    laundry: laundryFrom(amenities, textOf(buildingPage)),
+    parking: parkingFrom(amenities),
+    utilitiesIncluded: parseUtilities(utilitiesText),
+    utilityFee: utilityFeeFrom(section, unit.rentLow),
+    utilitiesText,
+    amenities,
+    checkedAt,
+  };
+}
+
+/** The Main Quad, which "distance to campus" is measured to. */
+const MAIN_QUAD: LatLng = { lat: 40.1074, lng: -88.2272 };
+
+/** Straight-line miles from a point to the Main Quad, to one decimal place. */
+export function milesToCampus(point: LatLng): number {
+  const toRadians = (degrees: number) => (degrees * Math.PI) / 180;
+  const earthRadiusMiles = 3958.8;
+  const dLat = toRadians(point.lat - MAIN_QUAD.lat);
+  const dLng = toRadians(point.lng - MAIN_QUAD.lng);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRadians(MAIN_QUAD.lat)) * Math.cos(toRadians(point.lat)) * Math.sin(dLng / 2) ** 2;
+  return Math.round(2 * earthRadiusMiles * Math.asin(Math.sqrt(a)) * 10) / 10;
+}
+
+/** The form fields a JSM unit can fill in beyond name, address, rent, and rooms. */
+export function jsmFormDetails(
+  unit: JsmUnit & { point: LatLng },
+): Pick<
+  ListingFormValues,
+  "distanceMiles" | "laundry" | "parking" | "utilitiesIncluded" | "utilitiesEstimate" | "contact" | "notes"
+> {
+  const details = unit.details;
+  const utilityFee = details?.utilityFee ?? null;
+  const notes = [unit.available ? `Available: ${unit.available}` : ""];
+  if (details?.utilitiesText) {
+    const fee = utilityFee === null ? "Utility fee" : `Utility fee ${money(utilityFee)}/mo`;
+    notes.push(`${fee} covers: ${details.utilitiesText}`);
+  }
+  if (details && details.amenities.length > 0) {
+    notes.push(`Amenities: ${details.amenities.join(", ")}`);
+  }
+  return {
+    distanceMiles: String(milesToCampus(unit.point)),
+    laundry: details?.laundry ?? "unknown",
+    parking: details?.parking ?? "unknown",
+    utilitiesIncluded: details?.utilitiesIncluded ?? [],
+    utilitiesEstimate: utilityFee === null ? "" : String(utilityFee),
+    contact: ["JSM", details?.phone ?? ""].filter(Boolean).join(", "),
+    notes: notes.filter(Boolean).join("\n"),
+  };
+}
+
 function isPoint(value: unknown): value is LatLng {
   const point = value as LatLng;
   return typeof point?.lat === "number" && typeof point?.lng === "number";
@@ -121,7 +271,9 @@ function isUnit(value: unknown): value is JsmUnit {
     typeof unit.rentLow === "number" &&
     typeof unit.rentHigh === "number" &&
     typeof unit.link === "string" &&
-    (unit.point === null || isPoint(unit.point))
+    (unit.point === null || isPoint(unit.point)) &&
+    (unit.details === undefined ||
+      (Array.isArray(unit.details.amenities) && Array.isArray(unit.details.utilitiesIncluded)))
   );
 }
 

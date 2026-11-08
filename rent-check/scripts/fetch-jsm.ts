@@ -10,6 +10,7 @@ import {
   defaultAddress,
   JSM_UNITS_URL,
   parseJsmUnits,
+  parseUnitDetails,
   readJsmFeed,
   streetAddress,
   type JsmUnit,
@@ -33,20 +34,17 @@ async function fetchText(url: string): Promise<string> {
   return response.text();
 }
 
-/** Coordinates found on earlier runs, so each building is only looked up once. */
-async function readKnownPlaces(): Promise<Map<string, { address: string; point: LatLng }>> {
-  const known = new Map<string, { address: string; point: LatLng }>();
+/** Building pages change rarely, so their details are reused for a week before being read again. */
+const DETAILS_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+
+/** The units saved by the last run, so locations and building details aren't looked up every time. */
+async function readEarlierUnits(): Promise<JsmUnit[]> {
   try {
-    const feed = readJsmFeed(JSON.parse(await readFile(FEED_FILE, "utf8")));
-    for (const unit of feed?.units ?? []) {
-      if (unit.point) {
-        known.set(unit.building, { address: unit.address, point: unit.point });
-      }
-    }
+    return readJsmFeed(JSON.parse(await readFile(FEED_FILE, "utf8")))?.units ?? [];
   } catch {
-    // No earlier file yet; every building gets looked up.
+    // No earlier file yet; everything gets looked up.
+    return [];
   }
-  return known;
 }
 
 interface NominatimMatch {
@@ -74,8 +72,13 @@ async function locate(building: string): Promise<{ address: string; point: LatLn
 const pause = () => new Promise((resolve) => setTimeout(resolve, LOOKUP_DELAY_MS));
 
 /** Looks up buildings not placed on earlier runs, pausing between lookups as Nominatim asks. */
-async function placeBuildings(units: JsmUnit[]): Promise<void> {
-  const known = await readKnownPlaces();
+async function placeBuildings(units: JsmUnit[], earlier: JsmUnit[]): Promise<void> {
+  const known = new Map<string, { address: string; point: LatLng }>();
+  for (const unit of earlier) {
+    if (unit.point) {
+      known.set(unit.building, { address: unit.address, point: unit.point });
+    }
+  }
   const buildings = [...new Set(units.map((unit) => unit.building))];
   for (const building of buildings) {
     if (!known.has(building)) {
@@ -93,6 +96,29 @@ async function placeBuildings(units: JsmUnit[]): Promise<void> {
   }
 }
 
+/** Reads each building's page for laundry, parking, utilities, and amenities, unless last week's are still fresh. */
+async function addDetails(units: JsmUnit[], earlier: JsmUnit[], checkedAt: string): Promise<void> {
+  const fresh = new Map(
+    earlier
+      .filter((unit) => unit.details && Date.now() - Date.parse(unit.details.checkedAt) < DETAILS_MAX_AGE_MS)
+      .map((unit) => [unit.id, unit.details]),
+  );
+  const pages = new Map<string, string | null>();
+  for (const unit of units) {
+    unit.details = fresh.get(unit.id);
+    if (unit.details) {
+      continue;
+    }
+    const pageUrl = unit.link.split("?")[0];
+    if (!pages.has(pageUrl)) {
+      await pause();
+      pages.set(pageUrl, await fetchText(pageUrl).catch(() => null));
+    }
+    const page = pages.get(pageUrl);
+    unit.details = page ? (parseUnitDetails(page, unit, checkedAt) ?? undefined) : undefined;
+  }
+}
+
 async function main() {
   let units: JsmUnit[];
   try {
@@ -105,13 +131,19 @@ async function main() {
     console.warn("Rent check skipped: JSM's page had no units the check could read. It may have changed its layout.");
     return;
   }
-  await placeBuildings(units);
-  const feed = { checkedAt: new Date().toISOString(), units };
+  const earlier = await readEarlierUnits();
+  const checkedAt = new Date().toISOString();
+  await placeBuildings(units, earlier);
+  await addDetails(units, earlier, checkedAt);
+  const feed = { checkedAt, units };
   await writeFile(FEED_FILE, `${JSON.stringify(feed, null, 1)}\n`);
   const unplaced = units.filter((unit) => unit.point === null).length;
-  console.log(
-    `Rent check: saved ${units.length} JSM units` + (unplaced > 0 ? ` (${unplaced} couldn't be placed on the map).` : "."),
-  );
+  const undetailed = units.filter((unit) => !unit.details).length;
+  const problems = [
+    unplaced > 0 ? `${unplaced} couldn't be placed on the map` : "",
+    undetailed > 0 ? `${undetailed} have no building details` : "",
+  ].filter(Boolean);
+  console.log(`Rent check: saved ${units.length} JSM units` + (problems.length > 0 ? ` (${problems.join("; ")}).` : "."));
 }
 
 await main();
