@@ -1,0 +1,56 @@
+# Copied into shriyak26/apartment-hunter by `npm run deploy`. Edit it here, not there.
+# Publishes the site whenever a new version is pushed, and every morning refreshes JSM rents first.
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # 11:00 UTC is 5 or 6 a.m. in Champaign, so rents are fresh before the day starts.
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        if: github.event_name != 'push'
+        with:
+          node-version: 24
+
+      - name: Check JSM rents
+        if: github.event_name != 'push'
+        run: node rent-check/scripts/fetch-jsm.ts jsm-units.json
+
+      # Saved back so building locations are reused and each day's rents are kept in the history.
+      - name: Save the new rents
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jsm-units.json
+          git diff --cached --quiet || (git commit -m "Daily JSM rent check" && git push)
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

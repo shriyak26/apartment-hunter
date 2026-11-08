@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apartment Hunter</title>
+    <script type="module" crossorigin src="./assets/index-CSkbNrkW.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B1ihbQvg.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-top">
+        <h1>Apartment Hunter</h1>
+        <button type="button" class="secondary theme-toggle" id="theme-toggle"></button>
+      </div>
+      <p class="tagline">Keep every place you're considering in one list.</p>
+      <nav class="tabs" aria-label="Sections">
+        <button type="button" class="tab" id="tab-map" data-tab="map" aria-controls="map-panel">Map</button>
+        <button type="button" class="tab" id="tab-add" data-tab="add" aria-controls="form-panel">Add an apartment</button>
+        <button type="button" class="tab" id="tab-list" data-tab="list" aria-controls="list-panel">
+          My apartments <span class="chip-count" id="tab-list-count">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="panel map-panel" id="map-panel" aria-labelledby="map-title" hidden>
+        <h2 id="map-title">Find apartments</h2>
+        <div class="map-search">
+          <label class="sort-control zip-control">
+            <span>Zip code</span>
+            <input id="map-zip" type="search" inputmode="numeric" maxlength="5" placeholder="61820" autocomplete="off" />
+          </label>
+          <button type="button" class="primary" id="map-search">Search this area</button>
+          <p id="map-search-status" class="muted small" role="status">
+            Move the map or type a zip code, then search for apartment buildings.
+          </p>
+        </div>
+        <p id="map-status" class="muted small" role="status"></p>
+        <p id="jsm-status" class="muted small" role="status">Loading JSM rents…</p>
+        <div class="map-layout">
+          <div id="map" class="map"></div>
+          <aside class="place-panel" id="place-panel" aria-label="Selected place" hidden></aside>
+        </div>
+      </section>
+
+      <section class="panel form-panel" id="form-panel" aria-labelledby="form-title">
+        <h2 id="form-title">Add an apartment</h2>
+        <form id="listing-form" novalidate>
+          <fieldset>
+            <legend>Basics</legend>
+            <label class="field wide">
+              <span>Name <abbr title="required">*</abbr></span>
+              <input name="name" type="text" placeholder="e.g. 309 E Green St, Unit 4" autocomplete="off" />
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+            <label class="field wide">
+              <span>Address</span>
+              <input name="address" type="text" placeholder="Street, city, zip" autocomplete="off" />
+            </label>
+            <label class="field">
+              <span>Monthly rent ($) <abbr title="required">*</abbr></span>
+              <input name="rent" type="number" min="0" step="1" inputmode="numeric" placeholder="950" />
+              <small class="field-error" data-error-for="rent"></small>
+            </label>
+            <label class="field">
+              <span>Bedrooms</span>
+              <input name="bedrooms" type="number" min="0" step="1" inputmode="numeric" />
+              <small class="field-error" data-error-for="bedrooms"></small>
+            </label>
+            <label class="field">
+              <span>Bathrooms</span>
+              <input name="bathrooms" type="number" min="0" step="0.5" inputmode="decimal" />
+              <small class="field-error" data-error-for="bathrooms"></small>
+            </label>
+            <label class="field wide">
+              <span>Listing link</span>
+              <input name="link" type="url" placeholder="https://…" autocomplete="off" />
+              <small class="field-error" data-error-for="link"></small>
+            </label>
+          </fieldset>
+
+          <details class="form-section" id="lease-section">
+            <summary>Lease &amp; costs <span class="optional">optional</span></summary>
+            <fieldset>
+              <legend class="visually-hidden">Lease &amp; costs</legend>
+              <label class="field">
+                <span>Move-in date</span>
+                <input name="moveInDate" type="date" />
+                <small class="field-error" data-error-for="moveInDate"></small>
+              </label>
+              <label class="field">
+                <span>Lease length (months)</span>
+                <input name="leaseMonths" type="number" min="0" step="1" inputmode="numeric" placeholder="12" />
+                <small class="field-error" data-error-for="leaseMonths"></small>
+              </label>
+              <label class="field">
+                <span>Security deposit ($)</span>
+                <input name="securityDeposit" type="number" min="0" step="1" inputmode="numeric" />
+                <small class="field-error" data-error-for="securityDeposit"></small>
+              </label>
+              <label class="field">
+                <span>Application fee ($)</span>
+                <input name="applicationFee" type="number" min="0" step="1" inputmode="numeric" />
+                <small class="field-error" data-error-for="applicationFee"></small>
+              </label>
+              <label class="field wide">
+                <span>Utilities not in rent, estimated ($/month)</span>
+                <input name="utilitiesEstimate" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 80 for electric + gas" />
+                <small class="field-error" data-error-for="utilitiesEstimate"></small>
+              </label>
+              <div class="field wide">
+                <span>Utilities included in rent</span>
+                <div class="checks" id="utility-checks"></div>
+              </div>
+            </fieldset>
+          </details>
+
+          <details class="form-section" id="location-section">
+            <summary>Location &amp; amenities <span class="optional">optional</span></summary>
+            <fieldset>
+              <legend class="visually-hidden">Location &amp; amenities</legend>
+              <label class="field">
+                <span>Distance to campus (miles)</span>
+                <input name="distanceMiles" type="number" min="0" step="0.1" inputmode="decimal" />
+                <small class="field-error" data-error-for="distanceMiles"></small>
+              </label>
+              <label class="field">
+                <span>Laundry</span>
+                <select name="laundry" id="laundry-select"></select>
+              </label>
+              <label class="field">
+                <span>Parking</span>
+                <select name="parking" id="parking-select"></select>
+              </label>
+              <label class="field">
+                <span>Pets</span>
+                <select name="pets" id="pets-select"></select>
+              </label>
+              <label class="check-field wide">
+                <input name="furnished" type="checkbox" />
+                <span>Furnished</span>
+              </label>
+            </fieldset>
+          </details>
+
+          <details class="form-section" id="ratings-section">
+            <summary>Your ratings <span class="optional">optional, 1 = poor, 5 = great</span></summary>
+            <fieldset id="rating-fields">
+              <legend class="visually-hidden">Your ratings</legend>
+            </fieldset>
+          </details>
+
+          <fieldset>
+            <legend>Tracking</legend>
+            <label class="field">
+              <span>Status</span>
+              <select name="status" id="status-select"></select>
+            </label>
+            <label class="field">
+              <span>Landlord / contact</span>
+              <input name="contact" type="text" placeholder="Name, phone, or email" autocomplete="off" />
+            </label>
+            <label class="field wide">
+              <span>Notes</span>
+              <textarea name="notes" rows="3" placeholder="Pros, cons, questions to ask on the tour…"></textarea>
+            </label>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="primary" id="submit-button">Save apartment</button>
+            <button type="button" class="secondary" id="cancel-edit" hidden>Cancel edit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel list-panel" id="list-panel" aria-labelledby="list-title">
+        <div class="list-header">
+          <h2 id="list-title">Your apartments</h2>
+          <p id="list-summary" class="muted"></p>
+        </div>
+        <div class="list-toolbar" id="list-toolbar" hidden>
+          <div class="filter-chips" id="status-filters" role="group" aria-label="Show apartments by status"></div>
+          <label class="sort-control zip-control">
+            <span>Zip code</span>
+            <input id="zip-filter" type="search" inputmode="numeric" maxlength="5" placeholder="61820" autocomplete="off" />
+          </label>
+          <label class="sort-control">
+            <span>Sort by</span>
+            <select id="sort-select"></select>
+          </label>
+        </div>
+        <details class="importance" id="importance-panel" hidden>
+          <summary>What matters to you? <span class="muted">Sets how the score is worked out</span></summary>
+          <div class="importance-fields" id="importance-fields"></div>
+        </details>
+        <div id="load-error" class="banner error" role="alert" hidden></div>
+        <p id="empty-state" class="empty" hidden>
+          No apartments yet.
+          <button type="button" class="link-button" id="empty-add">Add one</button>, like a place you saw on Zillow or Facebook.
+        </p>
+        <p id="filter-empty" class="empty" hidden></p>
+        <ul id="listing-list" class="listing-list"></ul>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <span id="toast-message"></span>
+      <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
+    </div>
+  </body>
+</html>
