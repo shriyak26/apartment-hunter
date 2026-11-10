@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-09T21:15:16.197Z",
+ "checkedAt": "2026-11-10T18:25:21.772Z",
  "units": [
   {
    "id": "130327",
@@ -117,7 +117,7 @@
    "bedrooms": 2,
    "bathrooms": 1,
    "rentLow": 1790,
-   "rentHigh": 1960,
+   "rentHigh": 1970,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/129315?bedrooms=2&unittype=102G-2-1-A2",
    "point": {
@@ -153,7 +153,7 @@
    "rentLow": 1195,
    "rentHigh": 1195,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/129400?bedrooms=0&unittype=105G-0-1-A",
+   "link": "https://jsmliving.com/node/129400?bedrooms=0&unittype=105G-0-1-A",
    "point": {
     "lat": 40.1098928,
     "lng": -88.2380081
@@ -187,8 +187,8 @@
    "address": "110 S. Gregory, Urbana, IL 61801",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 865,
-   "rentHigh": 960,
+   "rentLow": 870,
+   "rentHigh": 965,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/129491?bedrooms=1&unittype=110G-1-1-A",
    "point": {
@@ -254,8 +254,8 @@
    "address": "203 E. Stoughton, Champaign, IL 61820",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1144,
-   "rentHigh": 1144,
+   "rentLow": 1149,
+   "rentHigh": 1149,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/129559?bedrooms=1&unittype=203S-1-1-UPGRADED",
    "point": {
@@ -324,9 +324,9 @@
    "bedrooms": 0,
    "bathrooms": 1,
    "rentLow": 795,
-   "rentHigh": 810,
+   "rentHigh": 820,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/129649?bedrooms=0&unittype=307A-0-1-CORNER",
+   "link": "https://jsmliving.com/node/129649?bedrooms=0&unittype=307A-0-1-CORNER",
    "point": {
     "lat": 40.1053938,
     "lng": -88.2370198
@@ -361,9 +361,9 @@
    "bedrooms": 0,
    "bathrooms": 1,
    "rentLow": 870,
-   "rentHigh": 890,
+   "rentHigh": 895,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/129751?bedrooms=0&unittype=401C-0-1-CORNER",
+   "link": "https://jsmliving.com/node/129751?bedrooms=0&unittype=401C-0-1-CORNER",
    "point": {
     "lat": 40.1065245,
     "lng": -88.239477
@@ -398,8 +398,8 @@
    "address": "406 E. Clark, Champaign, IL 61820",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1005,
-   "rentHigh": 1005,
+   "rentLow": 1015,
+   "rentHigh": 1015,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/129954?bedrooms=1&unittype=406C-1-1-STANDARD",
    "point": {
@@ -433,9 +433,9 @@
    "bedrooms": 0,
    "bathrooms": 1,
    "rentLow": 995,
-   "rentHigh": 1065,
+   "rentHigh": 1070,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/129981?bedrooms=0&unittype=408S-0-1-C",
+   "link": "https://jsmliving.com/node/129981?bedrooms=0&unittype=408S-0-1-C",
    "point": {
     "lat": 40.113472,
     "lng": -88.2329889
@@ -534,10 +534,10 @@
    "address": "502 E. White, Champaign, IL 61820",
    "bedrooms": 0,
    "bathrooms": 1,
-   "rentLow": 1170,
-   "rentHigh": 1170,
+   "rentLow": 1180,
+   "rentHigh": 1180,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/130086?bedrooms=0&unittype=502W-0-1-CORNER",
+   "link": "https://jsmliving.com/node/130086?bedrooms=0&unittype=502W-0-1-CORNER",
    "point": {
     "lat": 40.1146803,
     "lng": -88.2318697
@@ -569,9 +569,9 @@
    "bedrooms": 0,
    "bathrooms": 1,
    "rentLow": 1075,
-   "rentHigh": 1090,
+   "rentHigh": 1095,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/130115?bedrooms=0&unittype=505C-0-1-SUITE-A",
+   "link": "https://jsmliving.com/node/130115?bedrooms=0&unittype=505C-0-1-SUITE-A",
    "point": {
     "lat": 40.1151433,
     "lng": -88.2313963
@@ -608,7 +608,7 @@
    "rentLow": 1800,
    "rentHigh": 1800,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/243607?bedrooms=0&unittype=505F-0-1-S1",
+   "link": "https://jsmliving.com/node/243607?bedrooms=0&unittype=505F-0-1-S1",
    "point": {
     "lat": 40.1183015,
     "lng": -88.2321059
@@ -802,7 +802,7 @@
    "bedrooms": 1,
    "bathrooms": 1,
    "rentLow": 1555,
-   "rentHigh": 1710,
+   "rentHigh": 1730,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130295?bedrooms=1&unittype=601S-1-1-B",
    "point": {
@@ -837,10 +837,10 @@
    "address": "602 E. Clark, Champaign, IL 61820",
    "bedrooms": 0,
    "bathrooms": 1,
-   "rentLow": 930,
+   "rentLow": 935,
    "rentHigh": 1060,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/130432?bedrooms=0&unittype=602C-0-1-FP-1",
+   "link": "https://jsmliving.com/node/130432?bedrooms=0&unittype=602C-0-1-FP-1",
    "point": {
     "lat": 40.1156646,
     "lng": -88.23019
@@ -1013,8 +1013,8 @@
    "address": "700 S. Gregory, Urbana, IL 61801",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1250,
-   "rentHigh": 1535,
+   "rentLow": 1260,
+   "rentHigh": 1545,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130642?bedrooms=1&unittype=700G-1-1-LUXURY",
    "point": {
@@ -1054,8 +1054,8 @@
    "address": "700 S. Gregory, Urbana, IL 61801",
    "bedrooms": 2,
    "bathrooms": 1,
-   "rentLow": 1830,
-   "rentHigh": 1830,
+   "rentLow": 1850,
+   "rentHigh": 1850,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130642?bedrooms=2&unittype=700G-2-1-STANDARD",
    "point": {
@@ -1092,8 +1092,8 @@
    "address": "701 S. Gregory, Urbana, IL 61801",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1240,
-   "rentHigh": 1465,
+   "rentLow": 1245,
+   "rentHigh": 1470,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130789?bedrooms=1&unittype=701G-1-1-LUXURY--B",
    "point": {
@@ -1133,8 +1133,8 @@
    "address": "701 S. Gregory, Urbana, IL 61801",
    "bedrooms": 2,
    "bathrooms": 1,
-   "rentLow": 1750,
-   "rentHigh": 1750,
+   "rentLow": 1760,
+   "rentHigh": 1760,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130789?bedrooms=2&unittype=701G-2-1-STANDARD",
    "point": {
@@ -1213,7 +1213,7 @@
    "rentLow": 1140,
    "rentHigh": 1140,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/250066?bedrooms=0&unittype=1105O-0-1-STANDARD",
+   "link": "https://jsmliving.com/node/250066?bedrooms=0&unittype=1105O-0-1-STANDARD",
    "point": {
     "lat": 40.1067481,
     "lng": -88.2222309
@@ -1315,7 +1315,7 @@
    "rentLow": 1140,
    "rentHigh": 1140,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/250071?bedrooms=0&unittype=1107O-0-1-STANDARD",
+   "link": "https://jsmliving.com/node/250071?bedrooms=0&unittype=1107O-0-1-STANDARD",
    "point": {
     "lat": 40.1067483,
     "lng": -88.2224838
@@ -1417,7 +1417,7 @@
    "rentLow": 975,
    "rentHigh": 975,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/250075?bedrooms=0&unittype=1108N-0-1-STANDARD",
+   "link": "https://jsmliving.com/node/250075?bedrooms=0&unittype=1108N-0-1-STANDARD",
    "point": {
     "lat": 40.1062408,
     "lng": -88.2224628
