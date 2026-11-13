@@ -1,6 +1,74 @@
 {
- "checkedAt": "2026-11-12T18:40:19.741Z",
+ "checkedAt": "2026-11-13T18:20:23.204Z",
  "units": [
+  {
+   "id": "129526",
+   "building": "201 S. Wright",
+   "address": "201 S. Wright, Champaign, IL 61820",
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rentLow": 1360,
+   "rentHigh": 1475,
+   "available": "Fall 2027",
+   "link": "https://jsmliving.com/node/129522?bedrooms=1&unittype=201W-1-1-A",
+   "point": {
+    "lat": 40.1152293,
+    "lng": -88.2293493
+   },
+   "details": {
+    "phone": "(217) 610-8192",
+    "laundry": "in-unit",
+    "parking": "paid",
+    "utilitiesIncluded": [
+     "internet"
+    ],
+    "utilityFee": 76,
+    "utilitiesText": "Internet, Sewer, and Recycling",
+    "amenities": [
+     "Secure Entry with Intercom",
+     "Leased Covered Parking",
+     "Laundry In Unit",
+     "JSM VIP Program Access",
+     "JSM Fitness Center Access",
+     "JSM Student Center Access"
+    ],
+    "checkedAt": "2026-11-08T21:17:09.798Z"
+   }
+  },
+  {
+   "id": "132484",
+   "building": "301 S. Water",
+   "address": "301 S. Water, Champaign, IL 61820",
+   "bedrooms": 4,
+   "bathrooms": 2,
+   "rentLow": 2636,
+   "rentHigh": 3150,
+   "available": "Fall 2027",
+   "link": "https://jsmliving.com/node/129588?bedrooms=4&unittype=301W-4-2-FP3",
+   "point": {
+    "lat": 40.114492,
+    "lng": -88.240249
+   },
+   "details": {
+    "phone": "(217) 610-8153",
+    "laundry": "in-unit",
+    "parking": "included",
+    "utilitiesIncluded": [
+     "internet"
+    ],
+    "utilityFee": 157,
+    "utilitiesText": "Sewer and Internet",
+    "amenities": [
+     "Secure Entry",
+     "Laundry in Unit",
+     "Parking Included",
+     "JSM VIP Program Access",
+     "JSM Fitness Center Access",
+     "JSM Student Center Access"
+    ],
+    "checkedAt": "2026-11-08T21:17:09.798Z"
+   }
+  },
   {
    "id": "130327",
    "building": "601 S. Sixth - Campus Center",
@@ -215,40 +283,6 @@
    }
   },
   {
-   "id": "129526",
-   "building": "201 S. Wright",
-   "address": "201 S. Wright, Champaign, IL 61820",
-   "bedrooms": 1,
-   "bathrooms": 1,
-   "rentLow": 1360,
-   "rentHigh": 1475,
-   "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/129522?bedrooms=1&unittype=201W-1-1-A",
-   "point": {
-    "lat": 40.1152293,
-    "lng": -88.2293493
-   },
-   "details": {
-    "phone": "(217) 610-8192",
-    "laundry": "in-unit",
-    "parking": "paid",
-    "utilitiesIncluded": [
-     "internet"
-    ],
-    "utilityFee": 76,
-    "utilitiesText": "Internet, Sewer, and Recycling",
-    "amenities": [
-     "Secure Entry with Intercom",
-     "Leased Covered Parking",
-     "Laundry In Unit",
-     "JSM VIP Program Access",
-     "JSM Fitness Center Access",
-     "JSM Student Center Access"
-    ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
-   }
-  },
-  {
    "id": "129560",
    "building": "203 E. Stoughton",
    "address": "203 E. Stoughton, Champaign, IL 61820",
@@ -276,40 +310,6 @@
      "Secure Entry",
      "Leased Parking",
      "Laundry In Unit",
-     "JSM VIP Program Access",
-     "JSM Fitness Center Access",
-     "JSM Student Center Access"
-    ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
-   }
-  },
-  {
-   "id": "132484",
-   "building": "301 S. Water",
-   "address": "301 S. Water, Champaign, IL 61820",
-   "bedrooms": 4,
-   "bathrooms": 2,
-   "rentLow": 2636,
-   "rentHigh": 3150,
-   "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/129588?bedrooms=4&unittype=301W-4-2-FP3",
-   "point": {
-    "lat": 40.114492,
-    "lng": -88.240249
-   },
-   "details": {
-    "phone": "(217) 610-8153",
-    "laundry": "in-unit",
-    "parking": "included",
-    "utilitiesIncluded": [
-     "internet"
-    ],
-    "utilityFee": 157,
-    "utilitiesText": "Sewer and Internet",
-    "amenities": [
-     "Secure Entry",
-     "Laundry in Unit",
-     "Parking Included",
      "JSM VIP Program Access",
      "JSM Fitness Center Access",
      "JSM Student Center Access"
@@ -503,7 +503,7 @@
    "rentLow": 1295,
    "rentHigh": 1325,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/130020?bedrooms=1&unittype=408W-1-1-A",
+   "link": "https://jsmliving.com/node/130020?bedrooms=1&unittype=408W-1-1-A",
    "point": {
     "lat": 40.1147769,
     "lng": -88.2325788
