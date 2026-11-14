@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartment Hunter</title>
-    <script type="module" crossorigin src="./assets/index-C_Y1H5Ll.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BFYVoRzt.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-M5UfyHYn.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-QoB_8qZN.css">
   </head>
   <body>
     <header class="app-header">
@@ -157,6 +160,28 @@
             </fieldset>
           </details>
 
+          <details class="form-section" id="notes-section">
+            <summary>Pros, cons &amp; tour notes <span class="optional">optional</span></summary>
+            <fieldset class="notes-fields">
+              <legend class="visually-hidden">Pros, cons, and tour notes</legend>
+              <label class="field">
+                <span>Pros <span class="muted small">one per line</span></span>
+                <textarea name="pros" rows="3" maxlength="2000" placeholder="Big windows&#10;5 min walk to class"></textarea>
+                <small class="field-error" data-error-for="pros"></small>
+              </label>
+              <label class="field">
+                <span>Cons <span class="muted small">one per line</span></span>
+                <textarea name="cons" rows="3" maxlength="2000" placeholder="No dishwasher&#10;Street noise at night"></textarea>
+                <small class="field-error" data-error-for="cons"></small>
+              </label>
+              <label class="field wide">
+                <span>Tour notes</span>
+                <textarea name="tourNotes" rows="3" maxlength="2000" placeholder="What you saw and heard on the tour, and answers to your questions"></textarea>
+                <small class="field-error" data-error-for="tourNotes"></small>
+              </label>
+            </fieldset>
+          </details>
+
           <fieldset>
             <legend>Tracking</legend>
             <label class="field">
@@ -169,7 +194,8 @@
             </label>
             <label class="field wide">
               <span>Notes</span>
-              <textarea name="notes" rows="3" placeholder="Pros, cons, questions to ask on the tour…"></textarea>
+              <textarea name="notes" rows="3" maxlength="2000" placeholder="Questions to ask, anything else to remember…"></textarea>
+              <small class="field-error" data-error-for="notes"></small>
             </label>
           </fieldset>
 
@@ -372,6 +398,6 @@
     <div id="toast" class="toast" role="status" aria-live="polite">
       <span id="toast-message"></span>
       <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
-    </div>
+    </div>
   </body>
 </html>
