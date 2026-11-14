@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartment Hunter</title>
-    <script type="module" crossorigin src="./assets/index-CPPRwU9R.js"></script>
+    <script type="module" crossorigin src="./assets/index-C_Y1H5Ll.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-ClZyd3UN.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-M5UfyHYn.css">
   </head>
   <body>
     <header class="app-header">
@@ -197,6 +197,32 @@
           <h2 id="list-title">Your apartments</h2>
           <p id="list-summary" class="muted"></p>
         </div>
+        <form class="quick-add" id="quick-add" novalidate hidden>
+          <p class="quick-add-title">Quick add <span class="muted small">Just the basics now; add the rest later.</span></p>
+          <div class="quick-add-fields">
+            <label class="field quick-name">
+              <span>Name <abbr title="required">*</abbr></span>
+              <input name="name" type="text" placeholder="e.g. 309 E Green St" autocomplete="off" enterkeyhint="done" />
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+            <label class="field quick-rent">
+              <span>Rent ($/mo) <abbr title="required">*</abbr></span>
+              <input name="rent" type="number" min="0" step="1" inputmode="numeric" placeholder="950" enterkeyhint="done" />
+              <small class="field-error" data-error-for="rent"></small>
+            </label>
+            <label class="field quick-small">
+              <span>Beds</span>
+              <input name="bedrooms" type="number" min="0" step="1" inputmode="numeric" enterkeyhint="done" />
+              <small class="field-error" data-error-for="bedrooms"></small>
+            </label>
+            <label class="field quick-small">
+              <span>Baths</span>
+              <input name="bathrooms" type="number" min="0" step="0.5" inputmode="decimal" enterkeyhint="done" />
+              <small class="field-error" data-error-for="bathrooms"></small>
+            </label>
+            <button type="submit" class="primary quick-add-button">Add</button>
+          </div>
+        </form>
         <div class="list-toolbar" id="list-toolbar" hidden>
           <div class="filter-chips" id="status-filters" role="group" aria-label="Show apartments by status"></div>
           <label class="sort-control zip-control">
