@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartment Hunter</title>
-    <script type="module" crossorigin src="./assets/index-VfFtdtvt.js"></script>
+    <script type="module" crossorigin src="./assets/index-CPPRwU9R.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-7CPRVH9w.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-ClZyd3UN.css">
   </head>
   <body>
     <header class="app-header">
@@ -223,6 +223,22 @@
         </p>
         <p id="filter-empty" class="empty" hidden></p>
         <ul id="listing-list" class="listing-list"></ul>
+        <div class="compare-bar" id="compare-bar" hidden>
+          <span id="compare-count"></span>
+          <button type="button" class="primary" id="compare-open">Compare</button>
+          <button type="button" class="secondary" id="compare-clear">Clear</button>
+        </div>
+      </section>
+
+      <section class="panel compare-panel" id="compare-panel" aria-labelledby="compare-title" hidden>
+        <div class="compare-header">
+          <button type="button" class="secondary" id="compare-back">← Back to list</button>
+          <h2 id="compare-title">Compare</h2>
+        </div>
+        <p class="muted small">★ marks the best in each row: lowest cost, closest, best laundry and parking, most utilities included, highest score. Rows like bedrooms and pets are up to you, so they aren't marked.</p>
+        <div class="compare-scroll">
+          <table class="compare-table" id="compare-table"></table>
+        </div>
       </section>
 
       <section class="panel guide-panel" id="guide-panel" aria-labelledby="guide-title" hidden>
@@ -330,6 +346,6 @@
     <div id="toast" class="toast" role="status" aria-live="polite">
       <span id="toast-message"></span>
       <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
-    </div>
+    </div>
   </body>
 </html>
