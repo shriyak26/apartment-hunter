@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-BFYVoRzt.js"></script>
+    <script type="module" crossorigin src="./assets/index-D-1O1FjI.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-QoB_8qZN.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-B6fAcKyT.css">
   </head>
   <body>
     <header class="app-header">
@@ -189,6 +189,16 @@
               <select name="status" id="status-select"></select>
             </label>
             <label class="field">
+              <span>Tour date &amp; time</span>
+              <input name="tourAt" type="datetime-local" />
+              <small class="field-error" data-error-for="tourAt"></small>
+            </label>
+            <label class="field">
+              <span>Apply by</span>
+              <input name="applyBy" type="date" />
+              <small class="field-error" data-error-for="applyBy"></small>
+            </label>
+            <label class="field">
               <span>Landlord / contact</span>
               <input name="contact" type="text" placeholder="Name, phone, or email" autocomplete="off" />
             </label>
@@ -249,6 +259,10 @@
             <button type="submit" class="primary quick-add-button">Add</button>
           </div>
         </form>
+        <section class="coming-up" id="coming-up" aria-labelledby="coming-up-title" hidden>
+          <h3 id="coming-up-title">Coming up</h3>
+          <ul id="coming-up-list"></ul>
+        </section>
         <div class="list-toolbar" id="list-toolbar" hidden>
           <div class="filter-chips" id="status-filters" role="group" aria-label="Show apartments by status"></div>
           <label class="sort-control zip-control">
@@ -258,6 +272,10 @@
           <label class="sort-control">
             <span>Sort by</span>
             <select id="sort-select"></select>
+          </label>
+          <label class="sort-control">
+            <span>Split rent</span>
+            <select id="split-select"></select>
           </label>
         </div>
         <details class="importance" id="importance-panel" hidden>
@@ -286,6 +304,7 @@
         <div class="compare-header">
           <button type="button" class="secondary" id="compare-back">← Back to list</button>
           <h2 id="compare-title">Compare</h2>
+          <button type="button" class="secondary" id="compare-share">Share comparison</button>
         </div>
         <p class="muted small">★ marks the best in each row: lowest cost, closest, best laundry and parking, most utilities included, highest score. Rows like bedrooms and pets are up to you, so they aren't marked.</p>
         <div class="compare-scroll">
@@ -386,6 +405,14 @@
           <button type="submit" class="primary" id="join-submit">Join</button>
         </div>
       </form>
+    </dialog>
+
+    <dialog id="photo-dialog" class="dialog photo-dialog" aria-label="Photo">
+      <img id="photo-dialog-image" alt="" />
+      <div class="dialog-actions">
+        <button type="button" class="danger" id="photo-remove">Remove photo</button>
+        <button type="button" class="secondary" id="photo-close">Close</button>
+      </div>
     </dialog>
 
     <dialog id="members-dialog" class="dialog" aria-labelledby="members-title">
