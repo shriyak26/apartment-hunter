@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartment Hunter</title>
-    <script type="module" crossorigin src="./assets/index-CG4zSecf.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B1ihbQvg.css">
+    <script type="module" crossorigin src="./assets/index-VfFtdtvt.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-7CPRVH9w.css">
   </head>
   <body>
     <header class="app-header">
       <div class="header-top">
         <h1>Apartment Hunter</h1>
-        <button type="button" class="secondary theme-toggle" id="theme-toggle"></button>
+        <div class="header-actions">
+          <span id="account-name" class="muted small" hidden></span>
+          <button type="button" class="secondary" id="account-button" hidden>Sign in</button>
+          <button type="button" class="secondary theme-toggle" id="theme-toggle"></button>
+        </div>
       </div>
       <p class="tagline">Keep every place you're considering in one list.</p>
       <nav class="tabs" aria-label="Sections">
@@ -20,6 +25,7 @@
         <button type="button" class="tab" id="tab-list" data-tab="list" aria-controls="list-panel">
           My apartments <span class="chip-count" id="tab-list-count">0</span>
         </button>
+        <button type="button" class="tab" id="tab-guide" data-tab="guide" aria-controls="guide-panel">Renting guide</button>
       </nav>
     </header>
 
@@ -175,6 +181,18 @@
       </section>
 
       <section class="panel list-panel" id="list-panel" aria-labelledby="list-title">
+        <div class="list-bar" id="list-bar" hidden>
+          <label class="sort-control">
+            <span>List</span>
+            <select id="list-select"></select>
+          </label>
+          <div class="list-bar-actions">
+            <button type="button" class="secondary" id="members-button" hidden>Members &amp; invite</button>
+            <button type="button" class="secondary" id="new-list-button">New list</button>
+            <button type="button" class="secondary" id="join-list-button">Join with code</button>
+          </div>
+          <p id="list-bar-note" class="muted small"></p>
+        </div>
         <div class="list-header">
           <h2 id="list-title">Your apartments</h2>
           <p id="list-summary" class="muted"></p>
@@ -194,6 +212,10 @@
           <summary>What matters to you? <span class="muted">Sets how the score is worked out</span></summary>
           <div class="importance-fields" id="importance-fields"></div>
         </details>
+        <details class="importance activity-panel" id="activity-panel" hidden>
+          <summary>Recent changes <span class="muted" id="activity-summary"></span></summary>
+          <ul class="activity-list" id="activity-list"></ul>
+        </details>
         <div id="load-error" class="banner error" role="alert" hidden></div>
         <p id="empty-state" class="empty" hidden>
           No apartments yet.
@@ -202,7 +224,108 @@
         <p id="filter-empty" class="empty" hidden></p>
         <ul id="listing-list" class="listing-list"></ul>
       </section>
+
+      <section class="panel guide-panel" id="guide-panel" aria-labelledby="guide-title" hidden>
+        <h2 id="guide-title">Renting guide</h2>
+        <p class="muted">Common questions about leases and renting. Tap a question to see the answer.</p>
+        <div class="guide-questions">
+          <details class="importance">
+            <summary>When should I start looking for next year's apartment?</summary>
+            <p>
+              In a college town, many places for the next school year are leased months ahead, often in the fall
+              or winter before. Start early so you have choices, but don't sign until you've compared a few places.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>What should I read in a lease before signing?</summary>
+            <p>
+              Check the lease dates, the monthly rent and when it's due, late fees, which utilities you pay, who
+              handles repairs, the rules on subletting, and what happens if you need to leave early. If something
+              you were promised out loud isn't written in the lease, ask for it in writing.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>What does "jointly and severally liable" mean?</summary>
+            <p>
+              It's common in roommate leases. Each roommate can be held responsible for the whole rent, not just
+              their share, so if one roommate stops paying, the others may have to cover it. Choose roommates you trust.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>How does a security deposit work?</summary>
+            <p>
+              You pay it up front, and the landlord can keep part of it for unpaid rent or damage beyond normal wear.
+              Take dated photos of every room when you move in and when you move out, so you can show what was
+              already there.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>What costs come on top of rent?</summary>
+            <p>
+              Look for utilities (electric, gas, water, internet), parking, application and admin fees, and renter's
+              insurance. The score on the My apartments tab spreads some of these into a monthly total so places
+              are easier to compare.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>What should I ask on a tour?</summary>
+            <p>
+              Ask how repairs get requested and how fast they're done, what the average utility bill is, whether
+              there's laundry in the unit, how loud it gets, and whether you can see the actual unit, not a model.
+            </p>
+          </details>
+          <details class="importance">
+            <summary>Where can I get help with a lease question?</summary>
+            <p>
+              Many universities offer free legal help for students, including lease reviews. Check what your
+              school provides before you sign anything you're unsure about.
+            </p>
+          </details>
+        </div>
+      </section>
     </main>
+
+    <dialog id="new-list-dialog" class="dialog" aria-labelledby="new-list-title">
+      <form method="dialog" id="new-list-form" novalidate>
+        <h2 id="new-list-title">New list</h2>
+        <label class="field">
+          <span>Name</span>
+          <input name="name" type="text" maxlength="60" placeholder="e.g. Fall 2027 with Alex" autocomplete="off" />
+          <small class="field-error" id="new-list-error"></small>
+        </label>
+        <label class="check-field" id="new-list-copy-label">
+          <input name="copy" type="checkbox" />
+          <span id="new-list-copy-text"></span>
+        </label>
+        <p class="small muted">Only you are in a new list. Share its invite code to add roommates.</p>
+        <div class="dialog-actions">
+          <button type="button" class="secondary" data-close>Cancel</button>
+          <button type="submit" class="primary">Create list</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="join-dialog" class="dialog" aria-labelledby="join-title">
+      <form method="dialog" id="join-form" novalidate>
+        <h2 id="join-title">Join a list</h2>
+        <label class="field">
+          <span>Invite code</span>
+          <input name="code" type="text" maxlength="9" placeholder="K7PM-QX3D" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <small class="field-error" id="join-error"></small>
+        </label>
+        <div class="dialog-actions">
+          <button type="button" class="secondary" data-close>Cancel</button>
+          <button type="submit" class="primary" id="join-submit">Join</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="members-dialog" class="dialog" aria-labelledby="members-title">
+      <div id="members-content"></div>
+      <div class="dialog-actions">
+        <button type="button" class="secondary" data-close>Done</button>
+      </div>
+    </dialog>
 
     <div id="toast" class="toast" role="status" aria-live="polite">
       <span id="toast-message"></span>
