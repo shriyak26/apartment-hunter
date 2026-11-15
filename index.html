@@ -7,14 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-D-1O1FjI.js"></script>
+    <script type="module" crossorigin src="./assets/index-DzOlmTW4.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-B6fAcKyT.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-D4biPMNg.css">
   </head>
   <body>
     <header class="app-header">
       <div class="header-top">
-        <h1>Apartment Hunter</h1>
+        <h1 class="brand">
+          <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect width="32" height="32" rx="9" fill="currentColor" />
+            <path d="M8 15.5 16 9l8 6.5V24a1 1 0 0 1-1 1h-4.5v-5.5h-5V25H9a1 1 0 0 1-1-1z" fill="var(--accent-text)" />
+          </svg>
+          <span>Apartment Hunter</span>
+        </h1>
         <div class="header-actions">
           <span id="account-name" class="muted small" hidden></span>
           <button type="button" class="secondary" id="account-button" hidden>Sign in</button>
@@ -24,14 +30,22 @@
       <p class="tagline">Keep every place you're considering in one list.</p>
       <nav class="tabs" aria-label="Sections">
         <button type="button" class="tab" id="tab-map" data-tab="map" aria-controls="map-panel">Map</button>
-        <button type="button" class="tab" id="tab-add" data-tab="add" aria-controls="form-panel">Add an apartment</button>
-        <button type="button" class="tab" id="tab-list" data-tab="list" aria-controls="list-panel">
-          My apartments <span class="chip-count" id="tab-list-count">0</span>
+        <button type="button" class="tab" id="tab-add" data-tab="add" aria-controls="form-panel">
+          <span class="tab-long">Add an apartment</span><span class="tab-short" aria-hidden="true">Add</span>
         </button>
-        <button type="button" class="tab" id="tab-guide" data-tab="guide" aria-controls="guide-panel">Renting guide</button>
+        <button type="button" class="tab" id="tab-list" data-tab="list" aria-controls="list-panel">
+          <span class="tab-long">My apartments</span><span class="tab-short" aria-hidden="true">Mine</span>
+          <span class="chip-count" id="tab-list-count">0</span>
+        </button>
+        <button type="button" class="tab" id="tab-guide" data-tab="guide" aria-controls="guide-panel">
+          <span class="tab-long">Renting guide</span><span class="tab-short" aria-hidden="true">Guide</span>
+        </button>
       </nav>
     </header>
 
+    <div id="offline-banner" class="banner offline" role="status" hidden>
+      You're offline. Your changes are kept and will sync when you're back online; map search and rent checks need a connection.
+    </div>
     <main class="layout">
       <section class="panel map-panel" id="map-panel" aria-labelledby="map-title" hidden>
         <h2 id="map-title">Find apartments</h2>
@@ -55,9 +69,9 @@
 
       <section class="panel form-panel" id="form-panel" aria-labelledby="form-title">
         <h2 id="form-title">Add an apartment</h2>
-        <form id="listing-form" novalidate>
+        <form id="listing-form" novalidate onsubmit="return false">
           <fieldset>
-            <legend>Basics</legend>
+            <legend>🏠 Basics</legend>
             <label class="field wide">
               <span>Name <abbr title="required">*</abbr></span>
               <input name="name" type="text" placeholder="e.g. 309 E Green St, Unit 4" autocomplete="off" />
@@ -67,7 +81,7 @@
               <span>Address</span>
               <input name="address" type="text" placeholder="Street, city, zip" autocomplete="off" />
             </label>
-            <label class="field">
+            <label class="field wide">
               <span>Monthly rent ($) <abbr title="required">*</abbr></span>
               <input name="rent" type="number" min="0" step="1" inputmode="numeric" placeholder="950" />
               <small class="field-error" data-error-for="rent"></small>
@@ -90,7 +104,7 @@
           </fieldset>
 
           <details class="form-section" id="lease-section">
-            <summary>Lease &amp; costs <span class="optional">optional</span></summary>
+            <summary>💵 Lease &amp; costs <span class="optional">optional</span></summary>
             <fieldset>
               <legend class="visually-hidden">Lease &amp; costs</legend>
               <label class="field">
@@ -126,7 +140,7 @@
           </details>
 
           <details class="form-section" id="location-section">
-            <summary>Location &amp; amenities <span class="optional">optional</span></summary>
+            <summary>📍 Location &amp; amenities <span class="optional">optional</span></summary>
             <fieldset>
               <legend class="visually-hidden">Location &amp; amenities</legend>
               <label class="field">
@@ -154,14 +168,14 @@
           </details>
 
           <details class="form-section" id="ratings-section">
-            <summary>Your ratings <span class="optional">optional, 1 = poor, 5 = great</span></summary>
+            <summary>⭐ Your ratings <span class="optional">optional, 1 = poor, 5 = great</span></summary>
             <fieldset id="rating-fields">
               <legend class="visually-hidden">Your ratings</legend>
             </fieldset>
           </details>
 
           <details class="form-section" id="notes-section">
-            <summary>Pros, cons &amp; tour notes <span class="optional">optional</span></summary>
+            <summary>📝 Pros, cons &amp; tour notes <span class="optional">optional</span></summary>
             <fieldset class="notes-fields">
               <legend class="visually-hidden">Pros, cons, and tour notes</legend>
               <label class="field">
@@ -183,7 +197,7 @@
           </details>
 
           <fieldset>
-            <legend>Tracking</legend>
+            <legend>📌 Tracking</legend>
             <label class="field">
               <span>Status</span>
               <select name="status" id="status-select"></select>
@@ -233,7 +247,7 @@
           <h2 id="list-title">Your apartments</h2>
           <p id="list-summary" class="muted"></p>
         </div>
-        <form class="quick-add" id="quick-add" novalidate hidden>
+        <form class="quick-add" id="quick-add" novalidate hidden onsubmit="return false">
           <p class="quick-add-title">Quick add <span class="muted small">Just the basics now; add the rest later.</span></p>
           <div class="quick-add-fields">
             <label class="field quick-name">
@@ -265,6 +279,10 @@
         </section>
         <div class="list-toolbar" id="list-toolbar" hidden>
           <div class="filter-chips" id="status-filters" role="group" aria-label="Show apartments by status"></div>
+          <button type="button" class="secondary small-button options-toggle" id="options-toggle" aria-expanded="false" aria-controls="list-options">
+            Sort &amp; filter<span id="options-count"></span>
+          </button>
+          <div class="list-options" id="list-options">
           <label class="sort-control zip-control">
             <span>Zip code</span>
             <input id="zip-filter" type="search" inputmode="numeric" maxlength="5" placeholder="61820" autocomplete="off" />
@@ -277,6 +295,7 @@
             <span>Split rent</span>
             <select id="split-select"></select>
           </label>
+          </div>
         </div>
         <details class="importance" id="importance-panel" hidden>
           <summary>What matters to you? <span class="muted">Sets how the score is worked out</span></summary>
@@ -287,6 +306,7 @@
           <ul class="activity-list" id="activity-list"></ul>
         </details>
         <div id="load-error" class="banner error" role="alert" hidden></div>
+        <p id="list-loading" class="empty" role="status" hidden>Loading apartments…</p>
         <p id="empty-state" class="empty" hidden>
           No apartments yet.
           <button type="button" class="link-button" id="empty-add">Add one</button>, like a place you saw on Zillow or Facebook.
