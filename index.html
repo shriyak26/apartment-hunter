@@ -7,13 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-DzOlmTW4.js"></script>
+    <script type="module" crossorigin src="./assets/index-CPjWryB1.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-D4biPMNg.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DxlS1DVt.css">
   </head>
   <body>
     <header class="app-header">
-      <div class="header-top">
+            <div class="header-top">
         <h1 class="brand">
           <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
             <rect width="32" height="32" rx="9" fill="currentColor" />
@@ -28,6 +28,40 @@
         </div>
       </div>
       <p class="tagline">Keep every place you're considering in one list.</p>
+      <svg class="header-skyline" viewBox="0 0 600 90" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+        <circle cx="520" cy="26" r="16" class="sky-sun" />
+        <g class="sky-back">
+          <rect x="180" y="34" width="44" height="56" rx="3" />
+          <rect x="300" y="22" width="36" height="68" rx="3" />
+          <rect x="430" y="40" width="50" height="50" rx="3" />
+          <rect x="540" y="30" width="40" height="60" rx="3" />
+        </g>
+        <g class="sky-front">
+          <path d="M120 90V62l24-20 24 20v28z" />
+          <path d="M226 90V58l30-24 30 24v32z" />
+          <rect x="342" y="48" width="40" height="42" rx="2" />
+          <path d="M386 90V66l20-16 20 16v24z" />
+          <path d="M482 90V60l26-20 26 20v30z" />
+          <rect x="560" y="56" width="40" height="34" rx="2" />
+        </g>
+        <g class="sky-windows">
+          <rect x="138" y="68" width="10" height="9" rx="1" />
+          <rect x="248" y="64" width="10" height="9" rx="1" />
+          <rect x="264" y="64" width="10" height="9" rx="1" />
+          <rect x="352" y="58" width="8" height="8" rx="1" />
+          <rect x="366" y="58" width="8" height="8" rx="1" />
+          <rect x="352" y="72" width="8" height="8" rx="1" />
+          <rect x="366" y="72" width="8" height="8" rx="1" class="sky-lit" />
+          <rect x="502" y="66" width="12" height="10" rx="1" class="sky-lit" />
+          <rect x="572" y="64" width="8" height="8" rx="1" />
+        </g>
+        <g class="sky-tree">
+          <rect x="203" y="74" width="3" height="16" />
+          <circle cx="204.5" cy="70" r="8" />
+          <rect x="455" y="76" width="3" height="14" />
+          <circle cx="456.5" cy="72" r="7" />
+        </g>
+      </svg>
       <nav class="tabs" aria-label="Sections">
         <button type="button" class="tab" id="tab-map" data-tab="map" aria-controls="map-panel">Map</button>
         <button type="button" class="tab" id="tab-add" data-tab="add" aria-controls="form-panel">
@@ -307,11 +341,45 @@
         </details>
         <div id="load-error" class="banner error" role="alert" hidden></div>
         <p id="list-loading" class="empty" role="status" hidden>Loading apartments…</p>
-        <p id="empty-state" class="empty" hidden>
-          No apartments yet.
-          <button type="button" class="link-button" id="empty-add">Add one</button>, like a place you saw on Zillow or Facebook.
-        </p>
-        <p id="filter-empty" class="empty" hidden></p>
+        <div id="empty-state" class="empty" hidden>
+          <svg class="illustration" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
+            <ellipse cx="100" cy="128" rx="78" ry="8" class="ill-shadow" />
+            <g class="ill-float">
+              <path d="M52 70 100 32l48 38v52a4 4 0 0 1-4 4H56a4 4 0 0 1-4-4z" class="ill-wall" />
+              <path d="M42 74 100 26l58 48" class="ill-roof" />
+              <rect x="88" y="90" width="24" height="36" rx="3" class="ill-door" />
+              <circle cx="106" cy="109" r="2" class="ill-knob" />
+              <rect x="62" y="80" width="18" height="16" rx="2" class="ill-window" />
+              <rect x="120" y="80" width="18" height="16" rx="2" class="ill-window" />
+              <rect x="128" y="38" width="10" height="18" class="ill-wall" />
+            </g>
+            <g class="ill-tree">
+              <rect x="171" y="104" width="5" height="22" rx="2" class="ill-trunk" />
+              <circle cx="173.5" cy="96" r="14" class="ill-leaves" />
+            </g>
+            <path d="M30 40c4-6 12-6 16 0 5-3 11 0 11 6H24c0-4 3-7 6-6z" class="ill-cloud ill-drift" />
+          </svg>
+          <p class="empty-title">Your apartment list is empty</p>
+          <p>
+            Use Quick add above, or
+            <button type="button" class="link-button" id="empty-add">open the full form</button>, for a place you saw on
+            Zillow, Facebook, or the Map tab.
+          </p>
+        </div>
+        <div id="filter-empty" class="empty" hidden>
+          <svg class="illustration" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
+            <ellipse cx="100" cy="128" rx="60" ry="7" class="ill-shadow" />
+            <g class="ill-float">
+              <rect x="44" y="34" width="84" height="84" rx="10" class="ill-wall" />
+              <rect x="56" y="50" width="44" height="6" rx="3" class="ill-line" />
+              <rect x="56" y="64" width="60" height="6" rx="3" class="ill-line" />
+              <rect x="56" y="78" width="36" height="6" rx="3" class="ill-line" />
+              <circle cx="130" cy="86" r="22" class="ill-lens" />
+              <path d="m146 102 18 18" class="ill-handle" />
+            </g>
+          </svg>
+          <p id="filter-empty-text"></p>
+        </div>
         <ul id="listing-list" class="listing-list"></ul>
         <div class="compare-bar" id="compare-bar" hidden>
           <span id="compare-count"></span>
@@ -443,6 +511,7 @@
     </dialog>
 
     <div id="toast" class="toast" role="status" aria-live="polite">
+      <span id="toast-icon" class="toast-icon" aria-hidden="true"></span>
       <span id="toast-message"></span>
       <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
     </div>
