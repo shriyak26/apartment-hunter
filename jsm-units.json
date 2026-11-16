@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-15T17:31:40.071Z",
+ "checkedAt": "2026-11-16T20:46:52.646Z",
  "units": [
   {
    "id": "129526",
@@ -32,7 +32,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -66,7 +66,45 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
+   }
+  },
+  {
+   "id": "129776",
+   "building": "401 E. Chalmers",
+   "address": "401 E. Chalmers, Champaign, IL 61820",
+   "bedrooms": 0,
+   "bathrooms": 1,
+   "rentLow": 865,
+   "rentHigh": 895,
+   "available": "Fall 2027, Fall 2026",
+   "link": "https://jsmliving.com/node/129751?bedrooms=0&unittype=401C-0-1-STANDARD",
+   "point": {
+    "lat": 40.1065245,
+    "lng": -88.239477
+   },
+   "details": {
+    "phone": "(217) 610-8149",
+    "laundry": "in-building",
+    "parking": "unknown",
+    "utilitiesIncluded": [
+     "water",
+     "electric",
+     "gas",
+     "internet"
+    ],
+    "utilityFee": 118,
+    "utilitiesText": "Water, Sewer, Gas, Electricity, Recycling, and Internet",
+    "amenities": [
+     "NEW Laundry Rooms",
+     "Secure Entry with Intercom",
+     "Luxer One Secure Package Delivery System",
+     "Window and Dual AC/Heat units",
+     "JSM VIP Program Access",
+     "JSM Fitness Center Access",
+     "JSM Student Center Access"
+    ],
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -103,7 +141,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -138,7 +176,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -175,7 +213,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -209,7 +247,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -246,7 +284,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -314,7 +352,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -351,45 +389,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
-   }
-  },
-  {
-   "id": "129752",
-   "building": "401 E. Chalmers",
-   "address": "401 E. Chalmers, Champaign, IL 61820",
-   "bedrooms": 0,
-   "bathrooms": 1,
-   "rentLow": 870,
-   "rentHigh": 895,
-   "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/129751?bedrooms=0&unittype=401C-0-1-CORNER",
-   "point": {
-    "lat": 40.1065245,
-    "lng": -88.239477
-   },
-   "details": {
-    "phone": "(217) 610-8149",
-    "laundry": "in-building",
-    "parking": "unknown",
-    "utilitiesIncluded": [
-     "water",
-     "electric",
-     "gas",
-     "internet"
-    ],
-    "utilityFee": 121,
-    "utilitiesText": "Water, Sewer, Gas, Electricity, Recycling, and Internet",
-    "amenities": [
-     "NEW Laundry Rooms",
-     "Secure Entry with Intercom",
-     "Luxer One Secure Package Delivery System",
-     "Window and Dual AC/Heat units",
-     "JSM VIP Program Access",
-     "JSM Fitness Center Access",
-     "JSM Student Center Access"
-    ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -423,7 +423,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -457,7 +457,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -491,11 +491,11 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
-   "id": "130021",
+   "id": "130023",
    "building": "408 E. White",
    "address": "408 E. White, Champaign, IL 61820",
    "bedrooms": 1,
@@ -503,7 +503,7 @@
    "rentLow": 1295,
    "rentHigh": 1325,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/130020?bedrooms=1&unittype=408W-1-1-A",
+   "link": "https://jsmliving.com/node/130020?bedrooms=1&unittype=408W-1-1-B",
    "point": {
     "lat": 40.1147769,
     "lng": -88.2325788
@@ -525,7 +525,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -534,9 +534,9 @@
    "address": "502 E. White, Champaign, IL 61820",
    "bedrooms": 0,
    "bathrooms": 1,
-   "rentLow": 1180,
+   "rentLow": 1020,
    "rentHigh": 1180,
-   "available": "Fall 2027",
+   "available": "Fall 2026, Fall 2027",
    "link": "https://jsmliving.com/node/130086?bedrooms=0&unittype=502W-0-1-CORNER",
    "point": {
     "lat": 40.1146803,
@@ -550,7 +550,7 @@
      "water",
      "internet"
     ],
-    "utilityFee": 102,
+    "utilityFee": 94,
     "utilitiesText": "Water, Sewer, Recycling, and Internet",
     "amenities": [
      "Secure Entry with Intercom",
@@ -559,7 +559,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -596,7 +596,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -605,8 +605,8 @@
    "address": "505 S. Fifth, Champaign, IL 61820",
    "bedrooms": 0,
    "bathrooms": 1,
-   "rentLow": 1800,
-   "rentHigh": 1800,
+   "rentLow": 1820,
+   "rentHigh": 1820,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/243607?bedrooms=0&unittype=505F-0-1-S1",
    "point": {
@@ -637,7 +637,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -646,8 +646,8 @@
    "address": "505 S. Fifth, Champaign, IL 61820",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1200,
-   "rentHigh": 2030,
+   "rentLow": 1250,
+   "rentHigh": 2050,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/243607?bedrooms=1&unittype=505F-1-1-A2",
    "point": {
@@ -678,7 +678,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -687,8 +687,8 @@
    "address": "505 S. Fifth, Champaign, IL 61820",
    "bedrooms": 4,
    "bathrooms": 4,
-   "rentLow": 4400,
-   "rentHigh": 4400,
+   "rentLow": 4576,
+   "rentHigh": 4576,
    "available": "Fall 2027",
    "link": "https://jsmliving.com/node/243607?bedrooms=4&unittype=505F-4-4-D1",
    "point": {
@@ -719,7 +719,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -757,7 +757,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -792,7 +792,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -828,7 +828,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -863,7 +863,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -898,7 +898,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -933,7 +933,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -968,43 +968,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
-   }
-  },
-  {
-   "id": "130562",
-   "building": "608 E. Green",
-   "address": "608 E. Green, Champaign, IL 61820",
-   "bedrooms": 4,
-   "bathrooms": 2,
-   "rentLow": 3060,
-   "rentHigh": 3060,
-   "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/130561?bedrooms=4&unittype=608G2-4-2-STANDARD",
-   "point": {
-    "lat": 40.1104177,
-    "lng": -88.2300265
-   },
-   "details": {
-    "phone": "(217) 318-5807",
-    "laundry": "in-unit",
-    "parking": "paid",
-    "utilitiesIncluded": [
-     "water",
-     "gas",
-     "internet"
-    ],
-    "utilityFee": 690,
-    "utilitiesText": "Gas, Water, Sewer, and Internet",
-    "amenities": [
-     "Secure Entry",
-     "Leased Parking",
-     "Laundry In Unit",
-     "JSM VIP Program Access",
-     "JSM Fitness Center Access",
-     "JSM Student Center Access"
-    ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1080,11 +1044,11 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
-   "id": "130891",
+   "id": "130845",
    "building": "701 S. Gregory",
    "address": "701 S. Gregory, Urbana, IL 61801",
    "bedrooms": 1,
@@ -1092,7 +1056,7 @@
    "rentLow": 1245,
    "rentHigh": 1470,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/130789?bedrooms=1&unittype=701G-1-1-LUXURY--B",
+   "link": "https://jsmliving.com/node/130789?bedrooms=1&unittype=701G-1-1-STANDARD",
    "point": {
     "lat": 40.1063054,
     "lng": -88.2217475
@@ -1107,8 +1071,8 @@
      "heat",
      "internet"
     ],
-    "utilityFee": 195,
-    "utilitiesText": "Water, Sewer, Heated & Cooled Air, Electricty, Recycling, and Internet",
+    "utilityFee": 190,
+    "utilitiesText": "Water, Sewer, Heated & Cooled Air, Electricity, Recycling, and Internet",
     "amenities": [
      "NEW Flooring",
      "NEW Bedroom Furniture",
@@ -1121,7 +1085,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1162,7 +1126,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1198,7 +1162,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1232,7 +1196,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1266,7 +1230,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1300,7 +1264,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1334,7 +1298,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1368,7 +1332,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1402,7 +1366,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1439,7 +1403,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1476,7 +1440,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1513,7 +1477,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   },
   {
@@ -1550,7 +1514,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-08T21:17:09.798Z"
+    "checkedAt": "2026-11-16T20:46:52.646Z"
    }
   }
  ]
