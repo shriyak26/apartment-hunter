@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CPjWryB1.js"></script>
+    <script type="module" crossorigin src="./assets/index-CPL0PSQR.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DxlS1DVt.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-C9bv7RPe.css">
   </head>
   <body>
     <header class="app-header">
@@ -312,6 +312,10 @@
           <ul id="coming-up-list"></ul>
         </section>
         <div class="list-toolbar" id="list-toolbar" hidden>
+          <label class="search-control">
+            <span class="visually-hidden">Search your apartments</span>
+            <input id="search-filter" type="search" placeholder="Search names, addresses, notes, pros…" autocomplete="off" maxlength="80" enterkeyhint="search" />
+          </label>
           <div class="filter-chips" id="status-filters" role="group" aria-label="Show apartments by status"></div>
           <button type="button" class="secondary small-button options-toggle" id="options-toggle" aria-expanded="false" aria-controls="list-options">
             Sort &amp; filter<span id="options-count"></span>
@@ -329,11 +333,38 @@
             <span>Split rent</span>
             <select id="split-select"></select>
           </label>
+          <label class="sort-control">
+            <span>Max rent ($/mo)</span>
+            <input id="max-rent-filter" type="number" min="0" max="20000" step="50" inputmode="numeric" placeholder="Any" />
+          </label>
+          <label class="sort-control">
+            <span>Bedrooms</span>
+            <select id="min-beds-filter">
+              <option value="">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+          <label class="check-control">
+            <input id="hide-rejected" type="checkbox" />
+            <span>Hide rejected</span>
+          </label>
           </div>
         </div>
         <details class="importance" id="importance-panel" hidden>
           <summary>What matters to you? <span class="muted">Sets how the score is worked out</span></summary>
           <div class="importance-fields" id="importance-fields"></div>
+        </details>
+        <details class="importance backup-panel" id="backup-panel" hidden>
+          <summary>Backup &amp; restore <span class="muted">Save your list to a file</span></summary>
+          <p class="small muted" id="backup-note">Your list lives in this browser. Download a backup now and then, so clearing the browser doesn't lose it.</p>
+          <div class="backup-actions">
+            <button type="button" class="secondary" id="backup-download">⬇ Download backup</button>
+            <button type="button" class="secondary" id="backup-restore">⬆ Restore from a backup</button>
+            <input type="file" id="backup-file" accept=".json,application/json" hidden />
+          </div>
         </details>
         <details class="importance activity-panel" id="activity-panel" hidden>
           <summary>Recent changes <span class="muted" id="activity-summary"></span></summary>
@@ -379,6 +410,7 @@
             </g>
           </svg>
           <p id="filter-empty-text"></p>
+          <button type="button" class="secondary" id="clear-filters">Clear filters</button>
         </div>
         <ul id="listing-list" class="listing-list"></ul>
         <div class="compare-bar" id="compare-bar" hidden>
@@ -395,6 +427,7 @@
           <button type="button" class="secondary" id="compare-share">Share comparison</button>
         </div>
         <p class="muted small">★ marks the best in each row: lowest cost, closest, best laundry and parking, most utilities included, highest score. Rows like bedrooms and pets are up to you, so they aren't marked.</p>
+        <p class="top-pick" id="top-pick" hidden></p>
         <div class="compare-scroll">
           <table class="compare-table" id="compare-table"></table>
         </div>
