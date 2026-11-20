@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-19T19:18:30.674Z",
+ "checkedAt": "2026-11-20T18:56:22.608Z",
  "units": [
   {
    "id": "129526",
@@ -1273,9 +1273,9 @@
    "address": "1107 W. Oregon, Urbana, IL 61801",
    "bedrooms": 1,
    "bathrooms": 1,
-   "rentLow": 1220,
+   "rentLow": 995,
    "rentHigh": 1220,
-   "available": "Fall 2027",
+   "available": "Fall 2026, Fall 2027",
    "link": "https://jsmliving.com/node/250071?bedrooms=1&unittype=1107O-1-1-STANDARD",
    "point": {
     "lat": 40.1067483,
