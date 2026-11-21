@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CPL0PSQR.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/firebase-BIgnSz07.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-C9bv7RPe.css">
+    <script type="module" crossorigin src="./assets/index-DVEPyCaz.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/firebase-CAeXaymN.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-C3s6Qwzr.css">
   </head>
   <body>
     <header class="app-header">
@@ -370,6 +370,23 @@
           <summary>Recent changes <span class="muted" id="activity-summary"></span></summary>
           <ul class="activity-list" id="activity-list"></ul>
         </details>
+        <details class="importance chat-panel" id="chat-panel" hidden>
+          <summary>Roommate chat <span class="muted" id="chat-summary"></span></summary>
+          <p class="small muted" id="chat-status" role="status">Loading messages…</p>
+          <ol class="chat-messages" id="chat-messages" aria-live="polite"></ol>
+          <form class="chat-form" id="chat-form" novalidate>
+            <label class="chat-attach">
+              <span class="small muted">Attach a place (optional)</span>
+              <select id="chat-place"></select>
+            </label>
+            <label class="chat-text">
+              <span class="visually-hidden">Message</span>
+              <textarea id="chat-text" rows="2" maxlength="1000" placeholder="Message your roommates. Paste links to other listings here too."></textarea>
+            </label>
+            <button type="submit" id="chat-send">Send</button>
+            <p class="field-error" id="chat-error" role="alert" hidden></p>
+          </form>
+        </details>
         <div id="load-error" class="banner error" role="alert" hidden></div>
         <p id="list-loading" class="empty" role="status" hidden>Loading apartments…</p>
         <div id="empty-state" class="empty" hidden>
@@ -547,6 +564,6 @@
       <span id="toast-icon" class="toast-icon" aria-hidden="true"></span>
       <span id="toast-message"></span>
       <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
-    </div>
+    </div>
   </body>
 </html>
