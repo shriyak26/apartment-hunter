@@ -129,3 +129,23 @@ export async function locateAll(
     onResult(address, await locateAddress(address, storage, lookup));
   }
 }
+
+/**
+ * The line under the map saying how many saved places have pins. Places with no address yet are named
+ * separately from addresses the lookup couldn't find, since each needs a different fix.
+ */
+export function describePinPlacement(total: number, noAddress: string[], notFound: string[], lookupFailed: boolean): string {
+  const placed = total - noAddress.length - notFound.length;
+  const parts = [`${placed} of your ${total} saved on the map.`];
+  if (notFound.length > 0) {
+    parts.push(
+      lookupFailed
+        ? `Couldn't reach the address lookup for: ${notFound.join(", ")}. Check your internet connection, then switch to List and back to Map.`
+        : `Couldn't find: ${notFound.join(", ")}. Edit the address to include street, city, state, and zip.`,
+    );
+  }
+  if (noAddress.length > 0) {
+    parts.push(`No address yet: ${noAddress.join(", ")}. Add one with Edit to put ${noAddress.length === 1 ? "it" : "them"} on the map.`);
+  }
+  return parts.join(" ");
+}
