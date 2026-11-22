@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-BssAar4l.js"></script>
+    <script type="module" crossorigin src="./assets/index-DfkJ18sq.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-CAeXaymN.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-Cpogunc9.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-4z6W0YwF.css">
   </head>
   <body>
     <header class="app-header">
@@ -360,6 +360,23 @@
         <details class="importance" id="importance-panel" hidden>
           <summary>What matters to you? <span class="muted">Sets how the score is worked out</span></summary>
           <div class="importance-fields" id="importance-fields"></div>
+        </details>
+        <details class="importance my-places-panel" id="my-places-panel" hidden>
+          <summary>My places <span class="muted">Walking and biking times on each card</span></summary>
+          <p class="small muted">Add spots you go to each week, like a class building, work, or the gym. Times are estimates from distance, not exact routes.</p>
+          <ul class="my-places-list" id="my-places-list" hidden></ul>
+          <form class="my-places-form" id="my-places-form" novalidate onsubmit="return false">
+            <label class="field">
+              <span>Name</span>
+              <input name="placeName" type="text" maxlength="40" placeholder="e.g. Siebel Center" autocomplete="off" />
+            </label>
+            <label class="field">
+              <span>Address</span>
+              <input name="placeAddress" type="text" placeholder="e.g. 201 N Goodwin Ave, Urbana" autocomplete="off" />
+            </label>
+            <button type="submit" class="secondary" id="my-places-add">Add place</button>
+            <p class="field-error" id="my-places-error" role="alert" hidden></p>
+          </form>
         </details>
         <details class="importance backup-panel" id="backup-panel" hidden>
           <summary>Backup &amp; restore <span class="muted">Save your list to a file</span></summary>

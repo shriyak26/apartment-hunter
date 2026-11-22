@@ -63,6 +63,11 @@ export function lookupUrl(address: string): string {
   return `https://nominatim.openstreetmap.org/search?${params}`;
 }
 
+/** Where an address was found before, null if it wasn't found, or undefined if it hasn't been looked up yet. */
+export function knownPoint(address: string, storage: Storage): LatLng | null | undefined {
+  return address.trim() === "" ? null : readSaved(storage)[cacheKey(address)];
+}
+
 function isKnown(address: string, storage: Storage): boolean {
   return address.trim() === "" || cacheKey(address) in readSaved(storage);
 }
