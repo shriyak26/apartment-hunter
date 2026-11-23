@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-OA5Cqo9_.js"></script>
+    <script type="module" crossorigin src="./assets/index-CMYpg807.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-CAeXaymN.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-o9gNw7Nm.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-C7g4a0pE.css">
   </head>
   <body>
     <header class="app-header">
@@ -261,6 +261,7 @@
             </label>
           </fieldset>
 
+          <div class="duplicate-note" id="form-duplicate" role="alert" hidden></div>
           <div class="form-actions">
             <button type="submit" class="primary" id="submit-button">Save apartment</button>
             <button type="button" class="secondary" id="cancel-edit" hidden>Cancel edit</button>
@@ -310,6 +311,7 @@
             </label>
             <button type="submit" class="primary quick-add-button">Add</button>
           </div>
+          <div class="duplicate-note" id="quick-duplicate" role="alert" hidden></div>
         </form>
         <section class="coming-up" id="coming-up" aria-labelledby="coming-up-title" hidden>
           <h3 id="coming-up-title">Coming up</h3>
@@ -585,6 +587,6 @@
       <span id="toast-icon" class="toast-icon" aria-hidden="true"></span>
       <span id="toast-message"></span>
       <button type="button" id="toast-action" class="toast-action" hidden>Undo</button>
-    </div>
+    </div>
   </body>
 </html>
