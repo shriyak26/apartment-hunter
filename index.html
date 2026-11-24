@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartment Hunter</title>
+    <meta name="description" content="Keep every place you're considering in one list." />
+    <!-- Installing to a home screen: name, icons, and full-screen mode (see public/manifest.webmanifest). -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#b9472a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Apartments" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-B4pwbIoC.js"></script>
+    <script type="module" crossorigin src="./assets/index-C73_5VVs.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/firebase-CAeXaymN.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-BAQeBZG8.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BQXdN2Ap.css">
   </head>
   <body>
     <header class="app-header">
@@ -431,6 +441,10 @@
             <path d="M30 40c4-6 12-6 16 0 5-3 11 0 11 6H24c0-4 3-7 6-6z" class="ill-cloud ill-drift" />
           </svg>
           <p class="empty-title">Your apartment list is empty</p>
+          <p class="small muted" id="installed-hint" hidden>
+            Saved places in your browser? On iPhone and iPad the installed app keeps its own list: download a backup in
+            the browser, then restore it here under Backup &amp; restore.
+          </p>
           <p>
             Use Quick add above, or
             <button type="button" class="link-button" id="empty-add">open the full form</button>, for a place you saw on
