@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-23T22:23:48.774Z",
+ "checkedAt": "2026-11-24T20:58:25.981Z",
  "units": [
   {
    "id": "129526",
@@ -389,7 +389,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-17T19:30:46.892Z"
+    "checkedAt": "2026-11-24T20:58:25.981Z"
    }
   },
   {
@@ -1088,42 +1088,6 @@
      "Luxer One Secure Package Delivery System",
      "Leased Garage Parking",
      "Laundry In Unit",
-     "JSM VIP Program Access",
-     "JSM Fitness Center Access",
-     "JSM Student Center Access"
-    ],
-    "checkedAt": "2026-11-23T22:23:48.774Z"
-   }
-  },
-  {
-   "id": "131018",
-   "building": "902 S. Lincoln",
-   "address": "902 S. Lincoln, Urbana, IL 61801",
-   "bedrooms": 3,
-   "bathrooms": 2,
-   "rentLow": 2625,
-   "rentHigh": 2625,
-   "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/131010?bedrooms=3&unittype=902L-3-2-A",
-   "point": {
-    "lat": 40.1052753,
-    "lng": -88.2191048
-   },
-   "details": {
-    "phone": "(217) 610-8973",
-    "laundry": "unknown",
-    "parking": "paid",
-    "utilitiesIncluded": [
-     "water",
-     "gas",
-     "internet"
-    ],
-    "utilityFee": 218,
-    "utilitiesText": "Water, Sewer, Recycling, Gas & Internet",
-    "amenities": [
-     "Secure Entry",
-     "Leased Parking",
-     "Leased Garage Parking",
      "JSM VIP Program Access",
      "JSM Fitness Center Access",
      "JSM Student Center Access"
