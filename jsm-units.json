@@ -1,8 +1,8 @@
 {
- "checkedAt": "2026-11-24T20:58:25.981Z",
+ "checkedAt": "2026-11-25T20:20:37.313Z",
  "units": [
   {
-   "id": "129526",
+   "id": "129530",
    "building": "201 S. Wright",
    "address": "201 S. Wright, Champaign, IL 61820",
    "bedrooms": 1,
@@ -10,7 +10,7 @@
    "rentLow": 1360,
    "rentHigh": 1475,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/129522?bedrooms=1&unittype=201W-1-1-A",
+   "link": "https://jsmliving.com/index.php/node/129522?bedrooms=1&unittype=201W-1-1-C",
    "point": {
     "lat": 40.1152293,
     "lng": -88.2293493
@@ -32,7 +32,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-23T22:23:48.774Z"
+    "checkedAt": "2026-11-25T20:20:37.313Z"
    }
   },
   {
@@ -689,7 +689,7 @@
    }
   },
   {
-   "id": "243172",
+   "id": "243175",
    "building": "507 E. Green - The Summit",
    "address": "507 E. Green, Champaign, IL 61820",
    "bedrooms": 1,
@@ -697,7 +697,7 @@
    "rentLow": 1745,
    "rentHigh": 1935,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/node/243170?bedrooms=1&unittype=507G-1-1-A",
+   "link": "https://jsmliving.com/node/243170?bedrooms=1&unittype=507G-1-1-D",
    "point": {
     "lat": 40.1101521,
     "lng": -88.231119
@@ -723,7 +723,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-23T22:23:48.774Z"
+    "checkedAt": "2026-11-25T20:20:37.313Z"
    }
   },
   {
