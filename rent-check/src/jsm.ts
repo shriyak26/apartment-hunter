@@ -362,8 +362,13 @@ export function applyJsmFeed(listings: Listing[], feed: JsmFeed): { listings: Li
       source: { ...listing.source, rentRange: rentRangeText(unit), listed: true, checkedAt: feed.checkedAt },
     };
     if (unit.rentLow !== listing.rent) {
+      const change = { from: listing.rent, to: unit.rentLow, date: feed.checkedAt };
       next.rent = unit.rentLow;
-      next.priceChange = { from: listing.rent, to: unit.rentLow, date: feed.checkedAt };
+      // Same as recordRentChange in listings.ts, written out here because the Node rent-check script loads this
+      // file and can't follow the app's imports. 20 is MAX_RENT_HISTORY.
+      const earlier = listing.rentHistory?.length ? listing.rentHistory : listing.priceChange ? [listing.priceChange] : [];
+      next.priceChange = change;
+      next.rentHistory = [...earlier, change].slice(-20);
       priceChanges.push(next);
     }
     return next;

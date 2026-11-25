@@ -134,9 +134,16 @@ export async function locateAll(
  * The line under the map saying how many saved places have pins. Places with no address yet are named
  * separately from addresses the lookup couldn't find, since each needs a different fix.
  */
-export function describePinPlacement(total: number, noAddress: string[], notFound: string[], lookupFailed: boolean): string {
+export function describePinPlacement(
+  total: number,
+  noAddress: string[],
+  notFound: string[],
+  lookupFailed: boolean,
+  filtered = false,
+): string {
   const placed = total - noAddress.length - notFound.length;
-  const parts = [`${placed} of your ${total} saved on the map.`];
+  // With filters on, "of your 5 saved" would read as if there were only 5 saved places.
+  const parts = [filtered ? `${placed} of the ${total} places your filters show are on the map.` : `${placed} of your ${total} saved on the map.`];
   if (notFound.length > 0) {
     parts.push(
       lookupFailed
