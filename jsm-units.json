@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-25T20:20:37.313Z",
+ "checkedAt": "2026-11-26T19:57:08.130Z",
  "units": [
   {
    "id": "129530",
@@ -10,7 +10,7 @@
    "rentLow": 1360,
    "rentHigh": 1475,
    "available": "Fall 2027",
-   "link": "https://jsmliving.com/index.php/node/129522?bedrooms=1&unittype=201W-1-1-C",
+   "link": "https://jsmliving.com/node/129522?bedrooms=1&unittype=201W-1-1-C",
    "point": {
     "lat": 40.1152293,
     "lng": -88.2293493
@@ -152,7 +152,7 @@
    "bathrooms": 1,
    "rentLow": 1195,
    "rentHigh": 1525,
-   "available": "Fall 2027, Fall 2026, Spring 2027",
+   "available": "Fall 2027",
    "link": "https://jsmliving.com/node/130895?bedrooms=1&unittype=707S-1-1-A",
    "point": {
     "lat": 40.1074035,
@@ -317,7 +317,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-19T19:18:30.674Z"
+    "checkedAt": "2026-11-26T19:57:08.130Z"
    }
   },
   {
@@ -972,7 +972,7 @@
      "JSM Fitness Center Access",
      "JSM Student Center Access"
     ],
-    "checkedAt": "2026-11-19T19:18:30.674Z"
+    "checkedAt": "2026-11-26T19:57:08.130Z"
    }
   },
   {
